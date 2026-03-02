@@ -1,0 +1,34 @@
+{
+  "name": "hellfire-theme",
+  "displayName": "Hellfire Theme",
+  "description": "A blazing red and black VS Code theme with animated fire background (requires Custom CSS and JS Loader).",
+  "version": "1.0.0",
+  "publisher": "hellfire",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark",
+    "red",
+    "fire",
+    "hellfire"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Hellfire",
+        "uiTheme": "vs-dark",
+        "path": "./themes/hellfire-color-theme.json"
+      }
+    ]
+  },
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/hellfire-theme"
+  }
+}

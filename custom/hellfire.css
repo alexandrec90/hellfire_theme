@@ -1,0 +1,265 @@
+/*
+ * Hellfire Theme — Custom CSS
+ * Injected via "Custom CSS and JS Loader" extension.
+ *
+ * Adds:
+ *  - A fixed flame canvas behind everything
+ *  - Semi-transparent editor / sidebar surfaces so the fire shows through
+ *  - Glowing ember effects on the cursor and scrollbar
+ */
+
+/* ── Flame canvas (created by hellfire.js) ─────────────────────────────── */
+#hellfire-canvas {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+/* ── Make VS Code surfaces translucent ─────────────────────────────────── */
+
+/* Root — must be transparent so the canvas shows at all */
+.monaco-workbench,
+.monaco-workbench > .part {
+  background: transparent !important;
+}
+
+/* ── Activity bar ── */
+.part.activitybar {
+  background: rgba(10, 0, 0, 0.65) !important;
+}
+.part.activitybar .content,
+.part.activitybar .composite,
+.part.activitybar .monaco-action-bar {
+  background: transparent !important;
+}
+
+/* ── Sidebar ── */
+.part.sidebar {
+  background: rgba(13, 0, 0, 0.60) !important;
+}
+.part.sidebar .composite,
+.part.sidebar .composite.title,
+.part.sidebar > .content,
+.part.sidebar .pane-body,
+.part.sidebar .monaco-tl-contents,
+.part.sidebar .tree-explorer-viewlet-tree-view,
+.part.sidebar .explorer-folders-view,
+.part.sidebar .outline-tree,
+.part.sidebar .scm-viewlet,
+.part.sidebar .extensions-list {
+  background: transparent !important;
+}
+
+/* ── Editor area ── */
+.part.editor {
+  background: rgba(10, 0, 0, 0.60) !important;
+}
+.part.editor .content,
+.editor-group-container,
+.editor-group-container .editor-container,
+.editor-group-container .editor-group-watermark,
+.monaco-editor,
+.monaco-editor .overflow-guard,
+.monaco-editor-background,
+.monaco-editor .inputarea.ime-input {
+  background: transparent !important;
+}
+
+/* Editor — restore a subtle tint so text stays legible */
+.monaco-editor .view-lines {
+  background: transparent !important;
+}
+
+/* Tab bar */
+.editor-group-container .title.tabs {
+  background: rgba(8, 0, 0, 0.75) !important;
+}
+.tab.active {
+  background: rgba(26, 0, 0, 0.88) !important;
+  border-bottom: 2px solid #ff4400 !important;
+}
+.tab:not(.active) {
+  background: rgba(13, 0, 0, 0.60) !important;
+}
+
+/* Breadcrumbs */
+.breadcrumbs-control {
+  background: rgba(10, 0, 0, 0.75) !important;
+}
+
+/* Minimap */
+.minimap {
+  background: rgba(8, 0, 0, 0.65) !important;
+}
+.minimap-shadow-visible {
+  background: transparent !important;
+}
+
+/* ── Panel (terminal / output / problems) ── */
+.part.panel {
+  background: rgba(8, 0, 0, 0.65) !important;
+}
+.part.panel .composite,
+.part.panel > .content,
+.part.panel .panel-container,
+.part.panel .monaco-tl-contents {
+  background: transparent !important;
+}
+
+/* Terminal — xterm renders its own canvas; just clear the wrapper */
+.terminal-outer-container,
+.terminal-wrapper,
+.xterm,
+.xterm .xterm-screen,
+.xterm .xterm-viewport {
+  background: transparent !important;
+}
+
+/* ── Status bar ── */
+.part.statusbar {
+  background: rgba(26, 0, 0, 0.90) !important;
+}
+
+/* ── Title bar ── */
+.part.titlebar {
+  background: rgba(15, 0, 0, 0.90) !important;
+}
+
+/* ── Cursor — glowing ember pulse ──────────────────────────────────────── */
+.cursor {
+  background: #ff4400 !important;
+  border-color: #ff4400 !important;
+  box-shadow:
+    0 0 4px 1px #ff4400,
+    0 0 10px 3px #ff220066,
+    0 0 20px 6px #ff000033 !important;
+  animation: hellfire-cursor-pulse 1.1s ease-in-out infinite alternate !important;
+}
+
+@keyframes hellfire-cursor-pulse {
+  from {
+    box-shadow:
+      0 0 4px 1px #ff4400,
+      0 0 10px 3px #ff220066,
+      0 0 20px 6px #ff000033;
+  }
+  to {
+    box-shadow:
+      0 0 6px 2px #ff6622,
+      0 0 16px 6px #ff440088,
+      0 0 30px 10px #ff220044;
+  }
+}
+
+/* ── Active line highlight — ember glow ────────────────────────────────── */
+.view-overlays .current-line {
+  border: none !important;
+  background: rgba(100, 10, 0, 0.28) !important;
+  box-shadow: inset 0 0 12px 0 rgba(255, 50, 0, 0.10) !important;
+}
+
+/* ── Scrollbar — fiery ember tint ───────────────────────────────────────── */
+.monaco-scrollable-element > .scrollbar > .slider {
+  background: rgba(180, 30, 0, 0.45) !important;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+.monaco-scrollable-element > .scrollbar > .slider:hover {
+  background: rgba(255, 60, 0, 0.65) !important;
+}
+
+/* ── Selection highlight — burning selection ────────────────────────────── */
+.selected-text {
+  background: rgba(160, 20, 0, 0.45) !important;
+}
+
+/* ── Find match highlight ───────────────────────────────────────────────── */
+.findMatch {
+  background: rgba(204, 50, 0, 0.55) !important;
+  border: 1px solid #ff4400 !important;
+}
+.currentFindMatch {
+  background: rgba(255, 80, 0, 0.60) !important;
+  border: 1px solid #ff6622 !important;
+}
+
+/* ── Suggest / hover widgets ────────────────────────────────────────────── */
+.suggest-widget,
+.monaco-hover {
+  background: rgba(15, 0, 0, 0.93) !important;
+  border: 1px solid #440000 !important;
+  box-shadow: 0 4px 24px rgba(200, 0, 0, 0.30) !important;
+  backdrop-filter: blur(4px);
+}
+
+/* ── Quick input / command palette ──────────────────────────────────────── */
+.quick-input-widget {
+  background: rgba(15, 0, 0, 0.95) !important;
+  border: 1px solid #550000 !important;
+  box-shadow: 0 8px 40px rgba(200, 0, 0, 0.40) !important;
+  backdrop-filter: blur(6px);
+}
+
+/* ── Notification toasts ────────────────────────────────────────────────── */
+.notifications-toasts .notification-toast {
+  background: rgba(15, 0, 0, 0.93) !important;
+  border: 1px solid #440000 !important;
+  box-shadow: 0 4px 20px rgba(180, 0, 0, 0.35) !important;
+}
+
+/* ── Input fields ───────────────────────────────────────────────────────── */
+.monaco-inputbox {
+  background: rgba(15, 0, 0, 0.90) !important;
+  border-color: #440000 !important;
+}
+.monaco-inputbox:focus-within {
+  border-color: #880000 !important;
+  box-shadow: 0 0 0 1px #88000066 !important;
+}
+
+/* ── Context menus ──────────────────────────────────────────────────────── */
+.context-view .monaco-menu {
+  background: rgba(12, 0, 0, 0.96) !important;
+  border: 1px solid #440000 !important;
+  box-shadow: 0 6px 30px rgba(180, 0, 0, 0.35) !important;
+}
+.monaco-menu .action-item.focused {
+  background: rgba(80, 10, 0, 0.80) !important;
+}
+
+/* ── Bracket pair highlights ────────────────────────────────────────────── */
+.bracket-match {
+  background: rgba(120, 20, 0, 0.35) !important;
+  border: 1px solid #882200 !important;
+}
+
+/* ── Custom fire-glow focus ring ────────────────────────────────────────── */
+:focus-visible {
+  outline: 1px solid #660000 !important;
+  box-shadow: 0 0 0 2px #44000066 !important;
+}
+
+/* ── Flame flicker animation for the status bar ─────────────────────────── */
+.part.statusbar {
+  animation: hellfire-statusbar-flicker 4s ease-in-out infinite;
+}
+
+@keyframes hellfire-statusbar-flicker {
+  0%,  100% { border-top-color: #660000; }
+  20%        { border-top-color: #cc2200; }
+  40%        { border-top-color: #ff4400; }
+  60%        { border-top-color: #991100; }
+  80%        { border-top-color: #dd3300; }
+}
+
+/* ── Activity bar icon hover ember glow ─────────────────────────────────── */
+.part.activitybar .action-item:hover .codicon {
+  color: #ff5533 !important;
+  filter: drop-shadow(0 0 6px #ff330099);
+  transition: filter 0.25s, color 0.25s;
+}
