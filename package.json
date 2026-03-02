@@ -26,9 +26,10 @@
       }
     ]
   },
-  "icon": "icon.png",
+  "icon": "hellfire_icon.png",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/hellfire-theme"
+    "url": "https://github.com/alexandrec90/hellfire_theme"
   }
 }
