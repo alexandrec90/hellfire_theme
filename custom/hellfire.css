@@ -30,7 +30,7 @@
 
 /* ── Activity bar ── */
 .part.activitybar {
-  background: rgba(10, 0, 0, 0.65) !important;
+  background: rgba(10, 0, 0, 0.85) !important;
 }
 .part.activitybar .content,
 .part.activitybar .composite,
@@ -40,7 +40,7 @@
 
 /* ── Sidebar ── */
 .part.sidebar {
-  background: rgba(13, 0, 0, 0.60) !important;
+  background: rgba(13, 0, 0, 0.85) !important;
 }
 .part.sidebar .composite,
 .part.sidebar .composite.title,
@@ -102,7 +102,7 @@
 
 /* ── Panel (terminal / output / problems) ── */
 .part.panel {
-  background: rgba(8, 0, 0, 0.65) !important;
+  background: rgba(8, 0, 0, 0.85) !important;
 }
 .part.panel .composite,
 .part.panel > .content,
