@@ -16,47 +16,40 @@ A blazing red-and-black VS Code color theme with an animated fire background.
 
 ## Installation
 
-### Step 1 — Install the theme extension
-
-**Option A — From source (development install):**
-
-1. Open a terminal in this folder.
-2. Run `npm install -g @vscode/vsce` (if not already installed).
-3. Run `vsce package` to produce a `.vsix` file.
-4. In VS Code: **Extensions → ⋯ → Install from VSIX…** and select the generated file.
-
-**Option B — Dev mode (no packaging):**
-
-1. Copy this entire folder to your VS Code extensions directory:
-   - Windows: `%USERPROFILE%\.vscode\extensions\hellfire-theme`
-   - macOS/Linux: `~/.vscode/extensions/hellfire-theme`
-2. Restart VS Code.
-
-### Step 2 — Activate the color theme
+### Step 1 — Activate the color theme
 
 `Ctrl+Shift+P` → **Preferences: Color Theme** → select **Hellfire**.
 
-### Step 3 — Install "Custom CSS and JS Loader"
+### Step 2 — Install "Custom CSS and JS Loader"
 
-Search for **"Custom CSS and JS Loader"** (by `be5invis`) in the Extensions marketplace and install it.
+Search for **"Custom CSS and JS Loader"** (by `be5invis`) in the Extensions panel and install it.
+The animated fire background requires this extension to inject the custom CSS and JS.
 
-### Step 4 — Point the extension at the Hellfire custom files
+### Step 3 — Point Custom CSS and JS Loader at the Hellfire files
 
 Add the following to your VS Code `settings.json` (`Ctrl+Shift+P` → **Open User Settings JSON**):
 
+**Windows:**
+
 ```json
 "vscode_custom_css.imports": [
-  "file:///C:/Users/YOUR_USERNAME/.vscode/extensions/hellfire-theme/custom/hellfire.css",
-  "file:///C:/Users/YOUR_USERNAME/.vscode/extensions/hellfire-theme/custom/hellfire.js"
+  "file:///C:/Users/YOUR_USERNAME/.vscode/extensions/alexcharbonneau.hellfire-theme-1.0.0/custom/hellfire.css",
+  "file:///C:/Users/YOUR_USERNAME/.vscode/extensions/alexcharbonneau.hellfire-theme-1.0.0/custom/hellfire.js"
 ]
 ```
 
-> **Windows note:** Use forward slashes and the `file:///` prefix.
-> **macOS/Linux:** Use `file:///home/you/.vscode/extensions/hellfire-theme/custom/hellfire.css` etc.
+**macOS / Linux:**
 
-Replace `YOUR_USERNAME` (and the path if you installed to a custom location).
+```json
+"vscode_custom_css.imports": [
+  "file:///home/YOUR_USERNAME/.vscode/extensions/alexcharbonneau.hellfire-theme-1.0.0/custom/hellfire.css",
+  "file:///home/YOUR_USERNAME/.vscode/extensions/alexcharbonneau.hellfire-theme-1.0.0/custom/hellfire.js"
+]
+```
 
-### Step 5 — Enable the custom CSS
+Replace `YOUR_USERNAME` with your system username. If you have a newer version installed, update `1.0.0` to match the folder name in your extensions directory.
+
+### Step 4 — Enable the custom CSS
 
 `Ctrl+Shift+P` → **Enable Custom CSS and JS** → click **Restart** when prompted.
 
@@ -66,7 +59,7 @@ VS Code will warn about a "corrupt installation" — this is expected. You can s
 
 ## Tweaking the flame
 
-Open [custom/hellfire.js](custom/hellfire.js) and adjust the constants at the top:
+Open the `hellfire.js` file in your extension folder and adjust the constants at the top:
 
 | Constant | Default | Effect |
 |---|---|---|
@@ -76,13 +69,13 @@ Open [custom/hellfire.js](custom/hellfire.js) and adjust the constants at the to
 | `FPS_TARGET` | `30` | Animation frame rate. |
 | `FLAME_HEIGHT_FRAC` | `0.55` | How much of the window height the flames occupy. |
 
-Open [custom/hellfire.css](custom/hellfire.css) to change the canvas `opacity` (line `#hellfire-canvas { opacity: 0.35 }`) for more or less visible flames.
+Open `hellfire.css` in the same folder to change the canvas `opacity` (`#hellfire-canvas { opacity: 0.35 }`) for more or less visible flames.
 
 After any edit, run `Ctrl+Shift+P` → **Reload Custom CSS and JS** to apply changes.
 
 ---
 
-## Uninstalling / disabling the animation
+## Disabling the animation
 
 `Ctrl+Shift+P` → **Disable Custom CSS and JS**, then disable or uninstall the "Custom CSS and JS Loader" extension.
 The color theme will continue to work independently.
