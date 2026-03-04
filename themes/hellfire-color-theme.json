@@ -272,7 +272,7 @@
       "name": "Comments",
       "scope": ["comment", "punctuation.definition.comment"],
       "settings": {
-        "foreground": "#7a2a1a",
+        "foreground": "#cc7744",
         "fontStyle": "italic"
       }
     },
@@ -606,7 +606,7 @@
     "typeParameter": "#ffaa55",
     "macro": "#ff4422",
     "decorator": { "foreground": "#ff3300", "italic": true },
-    "comment": { "foreground": "#7a2a1a", "italic": true },
+    "comment": { "foreground": "#cc7744", "italic": true },
     "string": "#ffaa55",
     "number": "#ff6644",
     "keyword": { "foreground": "#ff3311", "bold": true }

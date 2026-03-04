@@ -16,6 +16,15 @@
   --hf-border-hi: #550000;
   --hf-ember:     #ff4400;
   --hf-ember-hi:  #ff6622;
+
+  /* Opacity controls — tune these to adjust how much flame shows through */
+  --hf-canvas-opacity: 0.7;   /* global brightness of the flame canvas */
+  --hf-editor-alpha:   0.5;   /* editor backdrop darkness (0 = fully transparent) */
+  --hf-scrim-alpha:    0.30;   /* extra text-readability scrim over view-lines */
+
+  /* Extended palette */
+  --hf-ember-dim:  #660000;        /* dim ember — statusbar border, focus ring, flicker */
+  --hf-glow-rgb:   200, 0, 0;     /* RGB triplet for widget box-shadow glows */
 }
 
 /* ── Flame canvas (created by hellfire.js) ─────────────────────────────── */
@@ -27,7 +36,7 @@
   height: 100%;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.55;
+  opacity: var(--hf-canvas-opacity);
 }
 
 /* ── Make VS Code surfaces solid ───────────────────────────────────────── */
@@ -66,7 +75,7 @@
 
 /* ── Editor area — transparent so flames show through ── */
 .part.editor {
-  background: rgba(10, 0, 0, 0.55) !important;
+  background: rgba(10, 0, 0, var(--hf-editor-alpha)) !important;
 }
 .part.editor .content,
 .editor-group-container,
@@ -81,7 +90,7 @@
 
 /* ── Text contrast — scrim + shadow so code reads over flames ── */
 .monaco-editor .view-lines {
-  background: rgba(5, 0, 0, 0.30) !important;
+  background: rgba(5, 0, 0, var(--hf-scrim-alpha)) !important;
 }
 .monaco-editor .view-line,
 .monaco-editor .margin-view-overlays .line-numbers {
@@ -90,7 +99,7 @@
     0 1px 2px rgba(0, 0, 0, 0.90);
 }
 
-/* Tab bar */
+/* ── Tab bar ────────────────────────────────────────────────────────────── */
 .editor-group-container .title.tabs {
   background: var(--hf-bg) !important;
 }
@@ -102,12 +111,12 @@
   background: var(--hf-bg) !important;
 }
 
-/* Breadcrumbs */
+/* ── Breadcrumbs ─────────────────────────────────────────────────────────── */
 .breadcrumbs-control {
   background: var(--hf-bg) !important;
 }
 
-/* Minimap */
+/* ── Minimap ─────────────────────────────────────────────────────────────── */
 .minimap {
   background: var(--hf-bg) !important;
 }
@@ -138,7 +147,7 @@
 /* ── Status bar ── */
 .part.statusbar {
   background: var(--hf-bg) !important;
-  border-top: 1px solid #660000;
+  border-top: 1px solid var(--hf-ember-dim);
   animation: hellfire-statusbar-flicker 4s ease-in-out infinite;
 }
 
@@ -152,18 +161,18 @@
   background: var(--hf-ember) !important;
   border-color: var(--hf-ember) !important;
   box-shadow:
-    0 0 4px 1px #ff4400,
-    0 0 10px 3px #ff220066,
-    0 0 20px 6px #ff000033 !important;
+    0 0 4px 1px var(--hf-ember),
+    0 0 10px 3px rgba(255, 34, 0, 0.40),
+    0 0 20px 6px rgba(255, 0, 0, 0.20) !important;
   animation: hellfire-cursor-pulse 1.1s ease-in-out infinite alternate !important;
 }
 
 @keyframes hellfire-cursor-pulse {
   to {
     box-shadow:
-      0 0 6px 2px #ff6622,
-      0 0 16px 6px #ff440088,
-      0 0 30px 10px #ff220044;
+      0 0 6px 2px var(--hf-ember-hi),
+      0 0 16px 6px rgba(255, 68, 0, 0.53),
+      0 0 30px 10px rgba(255, 34, 0, 0.27);
   }
 }
 
@@ -204,21 +213,21 @@
 .monaco-hover {
   background: var(--hf-bg) !important;
   border: 1px solid var(--hf-border) !important;
-  box-shadow: 0 4px 24px rgba(200, 0, 0, 0.30) !important;
+  box-shadow: 0 4px 24px rgba(var(--hf-glow-rgb), 0.30) !important;
 }
 
 /* ── Quick input / command palette ──────────────────────────────────────── */
 .quick-input-widget {
   background: var(--hf-bg) !important;
   border: 1px solid var(--hf-border-hi) !important;
-  box-shadow: 0 8px 40px rgba(200, 0, 0, 0.40) !important;
+  box-shadow: 0 8px 40px rgba(var(--hf-glow-rgb), 0.40) !important;
 }
 
 /* ── Notification toasts ─────────────────────────────────────────────────── */
 .notifications-toasts .notification-toast {
   background: var(--hf-bg) !important;
   border: 1px solid var(--hf-border) !important;
-  box-shadow: 0 4px 20px rgba(180, 0, 0, 0.35) !important;
+  box-shadow: 0 4px 20px rgba(var(--hf-glow-rgb), 0.35) !important;
 }
 
 /* ── Input fields ───────────────────────────────────────────────────────── */
@@ -235,7 +244,7 @@
 .context-view .monaco-menu {
   background: var(--hf-bg) !important;
   border: 1px solid var(--hf-border) !important;
-  box-shadow: 0 6px 30px rgba(180, 0, 0, 0.35) !important;
+  box-shadow: 0 6px 30px rgba(var(--hf-glow-rgb), 0.35) !important;
 }
 .monaco-menu .action-item.focused {
   background: var(--hf-bg-raised) !important;
@@ -249,13 +258,13 @@
 
 /* ── Custom fire-glow focus ring ────────────────────────────────────────── */
 :focus-visible {
-  outline: 1px solid #660000 !important;
-  box-shadow: 0 0 0 2px #44000066 !important;
+  outline: 1px solid var(--hf-ember-dim) !important;
+  box-shadow: 0 0 0 2px rgba(68, 0, 0, 0.40) !important;
 }
 
 /* ── Flame flicker animation for the status bar ─────────────────────────── */
 @keyframes hellfire-statusbar-flicker {
-  0%,  100% { border-top-color: #660000; }
+  0%,  100% { border-top-color: var(--hf-ember-dim); }
   20%        { border-top-color: #cc2200; }
   40%        { border-top-color: var(--hf-ember); }
   60%        { border-top-color: #991100; }
