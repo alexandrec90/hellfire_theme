@@ -4,7 +4,7 @@
         {
             "label": "VSCE: Package Extension",
             "type": "shell",
-            "command": "npm run package",
+            "command": "npm run packaage",
             "problemMatcher": [],
             "group": {
                 "kind": "build",

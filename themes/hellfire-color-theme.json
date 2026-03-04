@@ -40,8 +40,13 @@
     "editorGutter.addedBackground": "#226600",
     "editorGutter.modifiedBackground": "#884400",
     "editorGutter.deletedBackground": "#880000",
-    "diffEditor.insertedTextBackground": "#1a330010",
-    "diffEditor.removedTextBackground": "#33000025",
+    "diffEditor.insertedTextBackground": "#1a330055",
+    "diffEditor.removedTextBackground": "#33000055",
+    "diffEditor.insertedLineBackground": "#1a330033",
+    "diffEditor.removedLineBackground": "#33000033",
+    "editorOverviewRuler.addedForeground": "#226600cc",
+    "editorOverviewRuler.modifiedForeground": "#884400cc",
+    "editorOverviewRuler.deletedForeground": "#880000cc",
 
     // ── Bracket pair colorisation ───────────────────────────────────────────
     "editorBracketHighlight.foreground1": "#ff4400",
