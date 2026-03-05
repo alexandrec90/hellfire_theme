@@ -2,6 +2,8 @@
 
 A blazing red-and-black VS Code color theme with an animated fire background.
 
+![Hellfire Theme Preview](images/preview.gif)
+
 ---
 
 ## Features

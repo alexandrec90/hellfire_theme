@@ -32,8 +32,7 @@
   "files": [
     "README.md",
     "LICENSE",
-    "hellfire_icon.png",
-    "hellfire_icon.svg",
+    "images/**",
     "extension.js",
     "themes/**",
     "custom/**"
@@ -47,7 +46,7 @@
       }
     ]
   },
-  "icon": "hellfire_icon.png",
+  "icon": "images/hellfire_icon.png",
   "license": "MIT",
   "repository": {
     "type": "git",
