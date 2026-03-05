@@ -2,10 +2,16 @@
   "name": "hellfire-theme",
   "displayName": "Hellfire Theme",
   "description": "A blazing red and black VS Code theme with animated fire background (requires Custom CSS and JS Loader).",
-  "version": "1.0.2",
+  "version": "1.0.4",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "scripts": {
     "prepackage": "npm version patch --no-git-tag-version",
-    "package": "vsce package"
+    "postversion": "node scripts/update-readme-version.js && node scripts/add-changelog-entry.js",
+    "package": "vsce package",
+    "update-settings": "node scripts/update-vscode-settings.js"
   },
   "publisher": "AlexCharbonneau",
   "engines": {
@@ -20,13 +26,15 @@
     "red",
     "fire",
     "hellfire",
-    "animated background"
+    "animated",
+    "animation"
   ],
   "files": [
     "README.md",
     "LICENSE",
     "hellfire_icon.png",
     "hellfire_icon.svg",
+    "extension.js",
     "themes/**",
     "custom/**"
   ],

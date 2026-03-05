@@ -1,15 +1,33 @@
 {
     "version": "2.0.0",
+    "inputs": [
+        {
+            "id": "changelogMsg",
+            "type": "promptString",
+            "description": "What changed in this version? (leave blank to skip changelog entry)"
+        }
+    ],
     "tasks": [
         {
             "label": "VSCE: Package Extension",
             "type": "shell",
             "command": "npm run package",
+            "options": {
+                "env": {
+                    "CHANGELOG_MSG": "${input:changelogMsg}"
+                }
+            },
             "problemMatcher": [],
             "group": {
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "label": "Update VS Code settings to latest version",
+            "type": "shell",
+            "command": "npm run update-settings",
+            "problemMatcher": []
         }
     ]
 }

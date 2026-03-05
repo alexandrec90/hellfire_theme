@@ -25,31 +25,9 @@ A blazing red-and-black VS Code color theme with an animated fire background.
 Search for **"Custom CSS and JS Loader"** (by `be5invis`) in the Extensions panel and install it.
 The animated fire background requires this extension to inject the custom CSS and JS.
 
-### Step 3 — Point Custom CSS and JS Loader at the Hellfire files
+### Step 3 — Enable the custom CSS
 
-Add the following to your VS Code `settings.json` (`Ctrl+Shift+P` → **Open User Settings JSON**):
-
-**Windows:**
-
-```json
-"vscode_custom_css.imports": [
-  "file:///C:/Users/YOUR_USERNAME/.vscode/extensions/alexcharbonneau.hellfire-theme-1.0.0/custom/hellfire.css",
-  "file:///C:/Users/YOUR_USERNAME/.vscode/extensions/alexcharbonneau.hellfire-theme-1.0.0/custom/hellfire.js"
-]
-```
-
-**macOS / Linux:**
-
-```json
-"vscode_custom_css.imports": [
-  "file:///home/YOUR_USERNAME/.vscode/extensions/alexcharbonneau.hellfire-theme-1.0.0/custom/hellfire.css",
-  "file:///home/YOUR_USERNAME/.vscode/extensions/alexcharbonneau.hellfire-theme-1.0.0/custom/hellfire.js"
-]
-```
-
-Replace `YOUR_USERNAME` with your system username. If you have a newer version installed, update `1.0.0` to match the folder name in your extensions directory.
-
-### Step 4 — Enable the custom CSS
+The Hellfire extension automatically adds its CSS and JS files to `vscode_custom_css.imports` on startup, so no manual path configuration is needed.
 
 `Ctrl+Shift+P` → **Enable Custom CSS and JS** → click **Restart** when prompted.
 
@@ -62,7 +40,7 @@ VS Code will warn about a "corrupt installation" — this is expected. You can s
 Open the `hellfire.js` file in your extension folder and adjust the constants at the top:
 
 | Constant | Default | Effect |
-|---|---|---|
+| --- | --- | --- |
 | `CELL_SIZE` | `4` | Resolution of the fire grid. Lower = sharper but heavier. |
 | `DECAY_MAX` | `3` | Max heat lost per step. Higher = shorter, cooler flames. |
 | `IGNITE_MIN/MAX` | `200/255` | Heat range of the base row. Lower = dimmer fire. |
@@ -79,3 +57,29 @@ After any edit, run `Ctrl+Shift+P` → **Reload Custom CSS and JS** to apply cha
 
 `Ctrl+Shift+P` → **Disable Custom CSS and JS**, then disable or uninstall the "Custom CSS and JS Loader" extension.
 The color theme will continue to work independently.
+
+---
+
+## Changelog
+
+### 1.0.4
+
+- Automatically update css import setting.
+
+### 1.0.3
+
+- Added opacity controls for the fire canvas
+- Refined editor and UI color settings
+
+### 1.0.2
+
+- Fixed diff editor colors (added/modified/deleted regions)
+- Fixed a typo in the VS Code build task command
+
+### 1.0.1
+
+- Improved text contrast in CSS for better readability
+
+### 1.0.0
+
+- Initial release: full red/black color theme with Doom-style animated fire background, ember cursor pulse, and semi-transparent panels
