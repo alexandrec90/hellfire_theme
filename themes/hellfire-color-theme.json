@@ -116,7 +116,7 @@
     "tab.activeBorder": "#ff4400",
     "tab.activeBorderTop": "#00000000",
     "tab.inactiveBackground": "#0d0000",
-    "tab.inactiveForeground": "#663333",
+    "tab.inactiveForeground": "#995555",
     "tab.hoverBackground": "#1f0000",
     "tab.hoverForeground": "#ff9977",
     "tab.border": "#1a0000",
@@ -130,7 +130,7 @@
     "panel.border": "#330000",
     "panelTitle.activeForeground": "#ff5533",
     "panelTitle.activeBorder": "#ff4400",
-    "panelTitle.inactiveForeground": "#662222",
+    "panelTitle.inactiveForeground": "#994444",
 
     // ── Terminal ────────────────────────────────────────────────────────────
     "terminal.background": "#080000",
@@ -236,7 +236,7 @@
     "gitDecoration.modifiedResourceForeground": "#ff8800",
     "gitDecoration.deletedResourceForeground": "#ff2200",
     "gitDecoration.untrackedResourceForeground": "#cc6600",
-    "gitDecoration.ignoredResourceForeground": "#551111",
+    "gitDecoration.ignoredResourceForeground": "#884444",
     "gitDecoration.conflictingResourceForeground": "#ff2255",
     "gitDecoration.stageModifiedResourceForeground": "#ffaa22",
     "gitDecoration.stageDeletedResourceForeground": "#ff5533",
